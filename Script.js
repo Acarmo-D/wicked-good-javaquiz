@@ -20,29 +20,6 @@ function startGame() {
     questionContainerElement.classList.remove('hide')
     setNextQuestion()
 }
-function startTimer() {
-    // Sets timer
-    timer = setInterval(function() {
-      timerCount--;
-      timerElement.textContent = timerCount;
-      if (timerCount >= 0) {
-        // Tests if win condition is met
-        if (isWin && timerCount > 0) {
-          // Clears interval and stops timer
-          clearInterval(timer);
-          winGame();
-        }
-      }
-      // Tests if time has run out
-      if (timerCount === 0) {
-        // Clears interval
-        clearInterval(timer);
-        loseGame();
-      }
-    }, 1000);
-  }
-  
-
 function setNextQuestion() {
     resetState()
     showQuestion(shuffledQuestions[currentQuestionIndex])
@@ -106,7 +83,9 @@ const questions = [
         question: "what does HTML stand for?",
         answers: [
             {text:'Hyper Text Markup Language' , correct: true },
-            {text:'Hyper Type Madeup Lingo', correct: false }
+            {text:'Hyper Type Madeup Lingo', correct: false },
+            {text:'Hyper Tamale Markup Lingo', correct: false },
+            {text:'Hyper Type Minty lime', correct: false }
         ]
     },
     {
@@ -114,40 +93,43 @@ const questions = [
         answers: [
             {text:'Cool sheet Styles' , correct: false },
             {text:'Crazy stained sheet', correct: false },
-            {text:'cascading style sheet', correct:true}
+            {text:'cascading style sheet', correct:true},
+            {text:'caring stan sheet', correct: false }
         ]
     },
     {
-        question: "what is 2+2?",
+        question: "How do you write Hello World in an alert box?",
         answers: [
-            {text:'4' , correct: true },
-            {text:'6', correct: false }
+            {text:'alert(Hello World)' , correct: true },
+            {text:'alertBox=Hello World', correct: false },
+            {text:'msgBox(Hello World', correct: false},
+            {text:'alertBox(Hello World)', correct: false}
         ]
     },
     {
-        question: "what is 2+2?",
+        question: "Inside which HTML element do we put JavaScript?",
         answers: [
-            {text:'4' , correct: true },
-            {text:'6', correct: false }
+            {text:'[Javascript]' , correct: false },
+            {text:'<js>', correct: false },
+            {text:'<script>' , correct: true },
+            {text:'<link>' , correct: false }
         ]
     },
     {
-        question: "what is 2+2?",
+        question: "What is the command to display a prompt?",
         answers: [
-            {text:'4' , correct: true },
-            {text:'6', correct: false }
+            {text:'display:Text Here' , correct: false },
+            {text:'console.log= Text Here', correct: false },
+            {text:'prompt(Text Here)', correct: true },
+            {text:'var Text Here', correct: false }
         ]
     }, {
-        question: "what is 2+2?",
+        question: "what values can confirm() return?",
         answers: [
-            {text:'4' , correct: true },
-            {text:'6', correct: false }
-        ]
-    }, {
-        question: "what is 2+2?",
-        answers: [
-            {text:'4' , correct: true },
-            {text:'6', correct: false }
+            {text:'True or False' , correct: true },
+            {text:'Yes or No', correct: false },
+            {text:'up or down', correct: false },
+            {text:'left or right', correct: false }
         ]
     }
 ]
